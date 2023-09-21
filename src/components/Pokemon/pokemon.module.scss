@@ -1,0 +1,27 @@
+@import  '../../App.scss';
+
+.pokemon {
+    @include flexbox(column);
+    padding: $indent__m;
+
+    &__name{
+        font: {
+            size: $font-size__l;
+            family: $font-montserrat;
+        }
+
+        text-transform: uppercase;
+        letter-spacing: $indent__xs;
+    }
+
+    &__image{
+        width: $indent__xxl;
+        
+    }
+
+    &__button{
+        @include button_style(rgb(52, 52, 224));
+    }
+
+}
+

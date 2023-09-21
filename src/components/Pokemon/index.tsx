@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from './pokemon.module.scss'
 
 type Pokemon = {
     name: string,
@@ -28,14 +29,14 @@ const Pokemon = () => {
     return (
         <div>
             {pokemon && 
-              <div>
-                <h3>{pokemon.name}</h3>
-                <img src={pokemon.image} />
+              <div className={styles.pokemon} >
+                <h3 className={styles["pokemon__name"]}>{pokemon.name}</h3>
+                <img className={styles["pokemon__image"]} src={pokemon.image} />
                 {pokemon.types.map((item:string, i:number) => <p key={i}> Types : {item} </p>)}
             </div>
             }
 
-            <button onClick={() => getPokemon(API_URL) }>Catch a Pokemon</button>
+            <button className={styles["pokemon__button"]} onClick={() => getPokemon(API_URL) }>Catch a Pokemon</button>
         </div>
     )
 }

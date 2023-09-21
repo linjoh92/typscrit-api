@@ -1,0 +1,39 @@
+@import '../../App.scss';
+
+.header {
+
+    @include flexbox;
+    @include header-styles(true, rgb(218, 66, 91));
+
+    padding: $indent__l;
+
+    &_accont,
+    &_logo {
+        flex: 0 0 15%;
+    }
+
+    &_logo {
+       width: 200px;
+    }
+
+    &_title{
+        font: {
+            size: $font-size__l;
+            family: $font-montserrat;
+        }
+    }
+
+    &_accont{
+        font: {
+           family: $font-montserrat;
+           size: $font-size__m ;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+
+    }
+
+}
