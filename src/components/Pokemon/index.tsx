@@ -31,12 +31,17 @@ const Pokemon = () => {
             {pokemon && 
               <div className={styles.pokemon} >
                 <h3 className={styles["pokemon__name"]}>{pokemon.name}</h3>
-                <img className={styles["pokemon__image"]} src={pokemon.image} />
-                {pokemon.types.map((item:string, i:number) => <p key={i}> Types : {item} </p>)}
+                <div className={styles[`pokemon__image--${pokemon.types[0]}`]}>
+                  <img className={styles["pokemon__image--img"]} src={pokemon.image} />
+                </div>
+                <div className={styles["pokemon__type"]} >
+                  {pokemon.types.map((item:string, i:number) => <p  className={styles[`pokemon__type--${item}`]} key={i}>{item} </p>)}
+                </div>
             </div>
             }
-
-            <button className={styles["pokemon__button"]} onClick={() => getPokemon(API_URL) }>Catch a Pokemon</button>
+             <div className={styles["pokemon__actions"]}>
+               <button className={styles["pokemon__actions--button"]} onClick={() => getPokemon(API_URL) }>Catch a Pokemon</button>
+            </div>
         </div>
     )
 }

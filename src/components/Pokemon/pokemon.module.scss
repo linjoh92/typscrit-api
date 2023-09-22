@@ -12,16 +12,52 @@
 
         text-transform: uppercase;
         letter-spacing: $indent__xs;
+        color: rgb(188, 4, 4);
     }
 
     &__image{
-        width: $indent__xxl;
+
+        &--img{
+           height: 150px
+        }
+        
         
     }
 
-    &__button{
-        @include button_style(rgb(52, 52, 224));
+    &__actions{
+        text-align: center;
+
+        &--button{
+            @include button_style(rgb(188, 4, 4));
+        
     }
+}
+
+&__type{
+    display: inherit;
+    text-transform: uppercase;
+    font-family: $font-montserrat;
+    font-weight: 600;
+
+    p{
+        padding: 0 $indent__s;
+    }
+
+}
+
+  @each $name, $color in $colors{
+    .pokemon__type--#{$name} {
+        color: #{$color};
+    }
+  }
+
+
+  @each $key, $color in $colors {
+      .pokemon__image--#{$key} {
+        @include pokemon-background($color) 
+      }
+}
+
 
 }
 

@@ -3,7 +3,7 @@
 .header {
 
     @include flexbox;
-    @include header-styles(true, rgb(218, 66, 91));
+    @include header-styles(true, rgb(0, 0, 0));
 
     padding: $indent__l;
 

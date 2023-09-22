@@ -14,7 +14,10 @@
     }
 
     background: lighten($color, 25%);
-    color: $color;
+    color: white;
+    font-size: $font-size__base;
+    text-transform: uppercase;
+    letter-spacing: $indent__xxs;
     cursor: pointer;
     padding: $indent__m ;
 
@@ -37,3 +40,12 @@
     }
 
 }
+
+@mixin pokemon-background($color: green){
+    background:radial-gradient( invert($color), $color);
+    border-radius: 50%;
+    box-shadow: 1px 0px 40px 8px $color;
+    padding: $indent__l;
+    margin: $indent__m;
+}
+
