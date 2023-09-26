@@ -1,15 +1,14 @@
-import { useState } from "react"
 import styles from './pokemon.module.scss'
-
-type Pokemon = {
-    name: string,
-    image: string,
-    types: string[]
-}
+import { BuddyContextType, PokemonContextType } from "../../utils/types";
+import { PokemonContext, BuddyContext } from '../../utils/contexts';
+import { useContext } from 'react';
 
 
 const Pokemon = () => {
-    const [pokemon, setPokemon] = useState<Pokemon | null>(null)
+
+    const {pokemon, setPokemon} = useContext(PokemonContext) as PokemonContextType
+    const {setBuddy} = useContext(BuddyContext) as BuddyContextType;
+
 
     const API_URL:string = "https://pokeapi.co/api/v2/";
 
@@ -24,7 +23,19 @@ const Pokemon = () => {
         const types:string[] = data.types.map((item:any) => item.type.name)
 
         setPokemon({name, image, types});
-    }
+      }
+      
+      const handelClick = (): void => {
+        if(pokemon) {
+          const imageUrl = pokemon.image
+         setBuddy(imageUrl)
+
+         const localData = JSON.stringify(imageUrl)
+         
+         localStorage.setItem("buddy", localData)
+        }   
+      }
+      
     
     return (
         <div>
@@ -37,6 +48,7 @@ const Pokemon = () => {
                 <div className={styles["pokemon__type"]} >
                   {pokemon.types.map((item:string, i:number) => <p  className={styles[`pokemon__type--${item}`]} key={i}>{item} </p>)}
                 </div>
+                <button onClick={() => handelClick()}>Make Buddy</button>
             </div>
             }
              <div className={styles["pokemon__actions"]}>

@@ -4,10 +4,11 @@
 
     @include flexbox;
     @include header-styles(true, rgb(0, 0, 0));
+    background-color: rgb(237, 237, 237);
 
     padding: $indent__l;
 
-    &_accont,
+    &_avatar,
     &_logo {
         flex: 0 0 15%;
     }
@@ -23,7 +24,7 @@
         }
     }
 
-    &_accont{
+    &_avatar{
         font: {
            family: $font-montserrat;
            size: $font-size__m ;
